@@ -19,18 +19,7 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 
-/*
-var LeafIcon = L.Icon.extend({
-						options: {
-                            iconUrl: 'marker_icon1.png',
-							iconSize:     [20, 18],//width,height
-							shadowSize:   [50, 64],
-							iconAnchor:   [9, 15],//margin-left in(-),height-top in(-)
-							shadowAnchor: [4, 62],
-							popupAnchor:  [-3, -76]
-						}
-					});
-*/
+
 var myIcon = L.icon({
     iconUrl: 'marker_icon1.png',
     iconSize:     [34, 42],//width,height
@@ -46,7 +35,10 @@ function onLocationFound(e) {
 
     L.marker(e.latlng).addTo(map).bindPopup("You are within " + radius + " meters from this point").openPopup();;
     L.marker({lat:23.777394084459527,lng:90.4107860658638}, {icon: myIcon}).addTo(map).on("click", function(e){
-                        alert("Icon Clicked");                
+        L.popup()
+    .setLatLng({lat:23.777394084459527,lng:90.4107860658638})
+    .setContent('<p>Hello world!<br />This is a nice popup.</p>')
+    .openOn(map);              
                     });;
 // L.marker([50.505, 30.57], {icon: myIcon}).addTo(map);
     L.circle(e.latlng, 18).addTo(map);
