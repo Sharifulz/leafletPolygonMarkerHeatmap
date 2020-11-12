@@ -34,13 +34,14 @@ function onLocationFound(e) {
     var radius = e.accuracy / 2;
 
     L.marker(e.latlng).addTo(map).bindPopup("You are within " + radius + " meters from this point").openPopup();;
-    L.marker({lat:23.777394084459527,lng:90.4107860658638}, {icon: myIcon}).addTo(map).on("click", function(e){
+    L.marker({lat:23.7739,lng:90.4119}, {icon: myIcon}).addTo(map).on("click", function(e){
         L.popup()
-    .setLatLng({lat:23.777394084459527,lng:90.4107860658638})
-    .setContent('<p>Hello world!<br />This is a nice popup.</p>')
-    .openOn(map);              
-                    });;
-// L.marker([50.505, 30.57], {icon: myIcon}).addTo(map);
+            .setLatLng({lat:23.7739,lng:90.4119})
+            .setContent('<p>Leaflet! <br />Wonderful tool to explore.</p>')
+            .openOn(map);              
+        });
+
+    // L.marker([50.505, 30.57], {icon: myIcon}).addTo(map);
     L.circle(e.latlng, 18).addTo(map);
 }
 
@@ -52,7 +53,7 @@ function onLocationError(e) {
 var boundary = [{lat:23.777394084459527,lng:90.4107860658638},{lat:23.778611530567947,lng:90.41074315051956},{lat:23.7788177098287,lng:90.41162291507645},{lat:23.778621348635397,lng:90.41182676296158},{lat:23.778110808145147,lng:90.41199842433853},{lat:23.777551174920415,lng:90.41233101825638},{lat:23.777070084784633,lng:90.41268506984635},{lat:23.776560050749943,lng:90.4129953414809},{lat:23.776137866488487,lng:90.41318846052997},{lat:23.775764772279494,lng:90.41337085074298},{lat:23.77522444819933,lng:90.41345780634158},{lat:23.77493971650526,lng:90.41346853517764},{lat:23.774674620919402,lng:90.41344707750552},{lat:23.773997151967425,lng:90.41346853517764},{lat:23.773618527409297,lng:90.4137886468809},{lat:23.772999963918608,lng:90.41441091937236},{lat:23.772734864379238,lng:90.41414269847087},{lat:23.77253849400174,lng:90.41385301989726},{lat:23.77230284915742,lng:90.41342386645488},{lat:23.771683874801553,lng:90.41231791210421},{lat:23.77150714004719,lng:90.40867010784396},{lat:23.771732967746257,lng:90.40617858044892},{lat:23.77279828008306,lng:90.40622686021119},{lat:23.773301840430772,lng:90.40699499822499},{lat:23.773463845062846,lng:90.40874074918419},{lat:23.77360621260327,lng:90.40963660699516},{lat:23.773733852334598,lng:90.41023205739647},{lat:23.773751318722592,lng:90.41056234259449},{lat:23.773967324107424,lng:90.41075009722553},{lat:23.77465952076486,lng:90.41097540278278},{lat:23.775095962213502,lng:90.41149834701203},{lat:23.775282510411095,lng:90.41183094092987},{lat:23.77558687794853,lng:90.4117451102414},{lat:23.776077791830556,lng:90.41198114463471},{lat:23.776539025346963,lng:90.41186625696301},{lat:23.777010299258965,lng:90.41121179796338}];
 
 //latlngBoundary = JSON.parse(boundary);
-var layerPlygon=L.polygon(boundary, {interactive: false,color: 'red'})
+var layerPlygon=L.polygon(boundary, {interactive: false,color: 'green'})
 .addTo(map);
 //-----------------------------------------
 map.on('locationfound', onLocationFound);
